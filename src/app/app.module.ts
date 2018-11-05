@@ -10,6 +10,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { simpleReducer } from './reducers/simple.reducer';
 import { postReducer } from './reducers/post.reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,9 @@ import { postReducer } from './reducers/post.reducer';
     StoreModule.forRoot({
       post: postReducer, /// <--- add reducer here
       message: simpleReducer
+    }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 10 // number of states to retain
     })
   ],
   providers: [],
